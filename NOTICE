@@ -1,0 +1,54 @@
+# NOTICE
+
+## paste-example-basichtml
+
+Copyright (c) 2017–present Tomshley LLC
+
+This product includes software developed and maintained by Tomshley LLC as part
+of the PasteStack project.
+
+---
+
+## License
+
+This project is licensed under the **Apache License, Version 2.0**.
+
+The Apache License includes an explicit patent grant and patent retaliation
+clause. The full license text is available in the `LICENSE` file at the root of
+this repository.
+
+---
+
+## Trademarks
+
+**Tomshley**, **PasteStack** and their logos are trademarks of Tomshley LLC.
+The pages use the PasteStack logo as the example's own.
+
+Use of these trademarks is governed by applicable trademark law and Tomshley
+brand usage guidelines. Brand assets are **not** licensed under the Apache
+License 2.0.
+
+---
+
+## Third-Party Notices
+
+All sources in this repository are covered by the Apache License 2.0 grant
+above, except for the PasteStack logo drawn in the pages' Logo and in
+`src/favicon.ico` (a trademark, as above) and third-party code adapted into
+the repository:
+
+- **TaskSpeed.** The sixteen tasks in `src/js/taskspeed/` are adapted from
+  TaskSpeed, copyright 2007-2009 mootools.net with modifications from
+  phiggins, its DOM baseline by WebReflection, under the MIT License:
+  https://github.com/phiggins42/taskspeed. The licence text is in
+  `LICENSES/TaskSpeed.txt`, and `scripts/build-dist.sh` publishes it at
+  `/taskspeed/LICENSE.txt`, beside the frames that run the tasks.
+
+The built site also serves a third-party file it does not contain:
+
+- **jQuery 3.7.1**, copyright OpenJS Foundation and other contributors,
+  under the MIT License. `scripts/fetch-deps.sh` fetches it, checked against
+  a pinned checksum, and `scripts/build-dist.sh` publishes it at
+  `/vendor/jquery-3.7.1.min.js` with its licence at
+  `/vendor/jquery-3.7.1-LICENSE.txt`. Only the performance page's jQuery frame
+  loads it.

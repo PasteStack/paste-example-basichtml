@@ -1,0 +1,20 @@
+# Build output, assembled by scripts/build-dist.sh
+dist/
+target/
+# Pinned releases fetched by scripts/fetch-deps.sh
+vendor/
+manifest.lock
+.paste-pending.*
+
+# Secrets
+*.env
+.credentials.*
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
