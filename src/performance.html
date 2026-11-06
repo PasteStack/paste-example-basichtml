@@ -1,0 +1,422 @@
+<!--
+  Copyright (c) 2017–present Tomshley LLC
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!--
+  The performance page: the same Surface markup as the showcase (webbase,
+  Logo, SectionNav, Hero), holding two live measurements. Both run in the
+  visitor's browser; nothing on the page is a recorded result.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- webbase(PageMeta(siteName = "Paste basic HTML example", title = "Performance",
+           description = ..., keywords = ..., url = "https://example.com/performance.html",
+           themeColor = "260403", fbSiteType = Some("website"))) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance — Paste basic HTML example</title>
+    <meta name="description" content="What Paste costs on top of the browser: TaskSpeed beside the native DOM and jQuery, and the showcase page's own load, live in your browser.">
+    <meta name="keywords" content="PasteStack, Paste, performance, TaskSpeed, benchmark, jQuery">
+    <meta name="theme-color" content="#260403">
+    <link rel="canonical" href="https://example.com/performance.html">
+    <meta property="og:url" content="https://example.com/performance.html">
+    <meta property="og:site_name" content="Paste basic HTML example">
+    <meta property="og:title" content="Performance">
+    <meta property="og:description" content="What Paste costs on top of the browser: TaskSpeed beside the native DOM and jQuery, and the showcase page's own load, live in your browser.">
+    <meta property="og:type" content="website">
+    <!-- headContent: the site icon, and the page's stylesheets, rendered by
+         paste-assetgraph -->
+    <link rel="icon" href="/favicon.ico">
+    <!-- paste-assetgraph css: site paste.ui.heroscroll -->
+    <link rel="stylesheet" href="/css/heroscroll.9e93863796c4c649f0dd33b1391832bf.v1.min.css"/>
+    <link rel="stylesheet" href="/css/site.070ba68917bdefac9960bb6c8fc9d831.v1.min.css"/>
+    <!-- /paste-assetgraph -->
+</head>
+<body>
+    <!-- navContent is empty: the logo and the section nav sit in the bar
+         after the intro. -->
+    <header class="paste-ui-header">
+    </header>
+    <main class="paste-ui-main">
+        <!-- hero(Hero(name = "performance", stickyNavTarget = true)) -->
+        <section id="performance" tabindex="-1" class="paste-ui-hero sticky-nav-target"
+                 data-paste-hero="performance"
+                 data-paste-parallax="true"
+                 data-paste-sticky-target="true">
+            <div id="performance-content-wrap" class="paste-ui-hero-content-wrap">
+                <div id="performance-content" class="paste-ui-hero-content">
+                    <h1>What Paste costs</h1>
+                    <p>Paste builds on the browser instead of replacing it, so the question is not
+                        whether it beats the native DOM but what it costs on top of it. Two
+                        measurements, both taken live in your browser, answer that: TaskSpeed, the
+                        classic DOM benchmark, with Paste beside the native DOM and jQuery, and what
+                        the showcase page costs to load. Nothing here is a recorded result.</p>
+                    <!-- sectionNav(SectionNav(items = Seq(NavItem("Run TaskSpeed", "taskspeed"),
+                           NavItem("The showcase page, measured", "measured"),
+                           NavItem("How it is measured", "method"),
+                           NavItem("Back to the showcase", "showcase", href = Some("/"))),
+                           sticky = false, cssClass = "site-links", ariaLabel = Some("On this page"),
+                           smoothscroll = true)) -->
+                    <nav class="paste-ui-section-nav site-links" data-paste-smoothscroll aria-label="On this page">
+                        <ul class="paste-ui-section-nav-items">
+                            <li class="paste-ui-section-nav-item">
+                                <a class="paste-ui-section-nav-link" href="#taskspeed">Run TaskSpeed</a>
+                            </li>
+                            <li class="paste-ui-section-nav-item">
+                                <a class="paste-ui-section-nav-link" href="#measured">The showcase page, measured</a>
+                            </li>
+                            <li class="paste-ui-section-nav-item">
+                                <a class="paste-ui-section-nav-link" href="#method">How it is measured</a>
+                            </li>
+                            <li class="paste-ui-section-nav-item">
+                                <a class="paste-ui-section-nav-link" href="/">Back to the showcase</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <!-- The bar: page markup after the intro. Its slot keeps the bar's
+             height in the flow, so when paste.ui.stickynav marks the nav and
+             the page pins the bar, nothing below moves. -->
+        <div class="site-bar-slot">
+            <div class="site-bar">
+                <!-- logo(Logo(ariaLabel = "Paste basic HTML example - home", title = "Paste basic HTML example",
+                       width = 48, height = 48, viewBox = Some("0 0 282 282"))) -->
+                <a href="/" class="paste-ui-logo" aria-label="Paste basic HTML example - home">
+                    <svg width="48" height="48" viewBox="0 0 282 282" role="img">
+                        <title>Paste basic HTML example</title>
+                        <!-- The PasteStack logo: a Tomshley LLC trademark, not licensed under the
+                             Apache License 2.0. See NOTICE. -->
+                        <g transform="translate(0,282) scale(0.1,-0.1)" fill="#fff">
+                            <path d="M2312 2678 c-22 -13 -109 -88 -194 -168 -319 -303 -298 -281 -298 -315 0 -27 -9 -41 -51 -76 -27
+                                -24 -60 -59 -72 -78 -12 -19 -25 -39 -28 -43 -3 -5 -35 9 -71 31 -125 76 -237 131 -267 131 -30 0
+                                -44 -12 -255 -211 -44 -40 -118 -112 -166 -159 -48 -47 -144 -139 -214 -205 -129 -122 -166 -171
+                                -166 -223 0 -26 -6 -32 -52 -51 -29 -12 -85 -36 -125 -54 l-72 -32 -1 -137 c0 -91 4 -138 11 -138 5
+                                0 35 -12 65 -26 l55 -26 -65 -31 -66 -30 0 -139 c0 -104 3 -138 13 -138 6 0 99 -43 205 -95 107 -52
+                                197 -95 200 -95 3 0 51 -22 106 -49 397 -193 419 -203 440 -193 12 6 41 19 66 30 81 36 314 143 385
+                                177 39 18 117 54 175 80 58 26 141 65 185 86 44 21 125 58 180 82 l100 45 3 135 3 135 -34 19 c-18
+                                11 -45 23 -60 27 -40 10 -33 20 33 50 l60 27 0 139 0 139 -82 31 c-46 17 -103 39 -128 50 -25 11
+                                -88 36 -140 56 -52 20 -97 38 -99 40 -2 1 16 12 40 23 271 121 264 116 267 154 3 37 13 29 -133 113
+                                -11 6 -49 28 -85 49 -36 21 -92 53 -124 71 l-59 32 69 66 c44 42 72 62 78 56 30 -30 70 -1 382 270
+                                142 123 180 165 194 216 35 122 -93 215 -208 152z m126 -28 c74 -45 67 -123 -17 -201 -114 -107
+                                -394 -349 -403 -349 -3 0 -15 17 -25 37 -10 21 -37 52 -61 70 l-43 32 63 59 c35 32 133 124 219 205
+                                188 177 204 185 267 147z m-512 -492 c36 -39 59 -93 29 -68 -16 13 -19 12 -71 -32 -65 -57 -98 -93
+                                -144 -161 -25 -36 -58 -73 -73 -82 -28 -17 -33 -45 -10 -52 14 -5 78 51 100 88 23 38 19 39 142 -35
+                                58 -35 140 -82 181 -104 41 -22 76 -47 78 -54 3 -14 -35 -33 -367 -182 l-123 -55 -107 5 c-175 10
+                                -257 -16 -518 -161 -196 -110 -268 -125 -378 -76 -53 23 -105 104 -105 162 0 49 52 108 284 323 41
+                                38 184 174 332 317 160 154 140 148 256 86 195 -105 210 -116 203 -146 -9 -37 -55 -102 -82 -114
+                                -26 -12 -34 -29 -23 -47 19 -31 96 48 145 150 47 96 97 158 168 207 31 22 37 31 32 50 -7 29 16 20
+                                51 -19z m29 -752 c130 -52 225 -89 278 -107 46 -16 46 -20 -1 -41 -20 -9 -73 -33 -117 -53 -302
+                                -138 -583 -265 -589 -265 -3 0 -56 -24 -118 -54 -62 -29 -129 -61 -149 -70 l-37 -17 -148 72 c-143
+                                70 -147 73 -119 82 56 19 134 69 162 104 86 108 152 149 423 265 63 27 142 62 175 77 135 62 105 61
+                                240 7z m-434 -52 c-41 -19 -77 -34 -82 -34 -4 0 -61 -27 -127 -60 -112 -56 -181 -110 -218 -171 -40
+                                -66 -186 -125 -291 -117 -98 8 -243 84 -243 128 0 5 -42 29 -94 54 -52 25 -97 49 -100 54 -3 6 31
+                                25 76 43 45 19 85 35 88 37 4 1 15 -15 25 -37 39 -87 103 -121 230 -121 85 0 86 0 198 59 61 32 138
+                                75 170 94 118 72 278 116 390 108 l51 -3 -73 -34z m787 -207 c4 -101 17 -88 -168 -172 -69 -31 -210
+                                -96 -315 -145 -104 -48 -242 -111 -305 -140 -63 -29 -142 -66 -175 -82 -116 -57 -105 -62 -105 55
+                                l0 102 68 32 c37 17 117 55 177 83 61 29 134 61 164 71 30 10 59 23 65 27 11 9 151 73 436 201 74
+                                34 139 59 145 58 5 -2 11 -42 13 -90z m-1934 9 c23 -13 58 -29 80 -36 22 -7 62 -36 97 -70 76 -75
+                                131 -101 223 -108 64 -4 88 -13 249 -90 l177 -86 0 -102 0 -103 -107 53 c-147 72 -235 114 -603 286
+                                l-165 77 -3 102 c-1 55 0 101 4 101 4 0 26 -11 48 -24z m1841 -238 c68 -28 68 -30 3 -58 -29 -12
+                                -80 -36 -113 -52 -33 -17 -82 -39 -109 -50 -56 -22 -99 -41 -301 -138 -78 -37 -152 -71 -165 -75
+                                -14 -4 -86 -37 -160 -73 -74 -35 -139 -65 -145 -65 -5 0 -77 33 -160 72 -281 135 -610 293 -664 319
+                                l-55 26 50 23 c65 29 64 29 155 -17 44 -22 106 -51 139 -65 33 -14 115 -52 182 -86 185 -91 336
+                                -159 353 -159 8 0 102 40 207 89 210 96 302 138 333 152 60 25 305 141 335 158 45 26 49 25 115 -1z
+                                m95 -157 c0 -107 4 -101 -150 -171 -63 -29 -149 -68 -190 -87 -94 -44 -305 -141 -345 -158 -16 -7
+                                -79 -37 -140 -65 -131 -62 -235 -110 -241 -110 -2 0 -4 45 -4 100 0 95 1 101 23 109 12 5 93 43 180
+                                85 87 42 160 76 162 76 8 0 206 90 287 131 43 21 131 61 195 89 65 28 138 62 163 74 25 12 48 21 53
+                                19 4 -2 7 -44 7 -92z m-1923 0 c10 -5 52 -25 93 -44 85 -39 269 -127 537 -258 l183 -88 0 -101 0
+                                -100 -97 48 c-54 27 -141 68 -193 93 -52 24 -178 85 -280 135 -102 50 -196 95 -210 99 -14 4 -42 16
+                                -62 26 l-38 19 0 100 0 100 24 -10 c14 -5 33 -13 43 -19z"/>
+                        </g>
+                    </svg>
+                </a>
+                <!-- sectionNav(SectionNav(items = Seq(NavItem("TaskSpeed", "taskspeed"),
+                       NavItem("Showcase, measured", "measured"), NavItem("Method", "method"),
+                       NavItem("Showcase", "showcase", href = Some("/"))),
+                       scrollspy = true, ariaLabel = Some("Sections"), smoothscroll = true)) -->
+                <nav class="paste-ui-section-nav" data-paste-sticky-nav data-paste-scrollspy data-paste-smoothscroll aria-label="Sections">
+                    <ul class="paste-ui-section-nav-items">
+                        <li class="paste-ui-section-nav-item">
+                            <a class="paste-ui-section-nav-link" href="#taskspeed">TaskSpeed</a>
+                        </li>
+                        <li class="paste-ui-section-nav-item">
+                            <a class="paste-ui-section-nav-link" href="#measured">Showcase, measured</a>
+                        </li>
+                        <li class="paste-ui-section-nav-item">
+                            <a class="paste-ui-section-nav-link" href="#method">Method</a>
+                        </li>
+                        <li class="paste-ui-section-nav-item">
+                            <a class="paste-ui-section-nav-link" href="/">Showcase</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- hero(Hero(name = "taskspeed")) -->
+        <section id="taskspeed" tabindex="-1" class="paste-ui-hero"
+                 data-paste-hero="taskspeed"
+                 data-paste-parallax="true">
+            <div id="taskspeed-content-wrap" class="paste-ui-hero-content-wrap">
+                <div id="taskspeed-content" class="paste-ui-hero-content">
+                    <h2>Run TaskSpeed</h2>
+                    <p>TaskSpeed times sixteen everyday DOM jobs: build lists, bind events, set
+                        classes and styles, insert and remove elements. Each contender runs them in
+                        its own frame, starting from the same empty page. After every task, every one
+                        must return the same value and leave the same document, so none can skip
+                        work the document shows. Listeners leave no trace in a document, so the bind
+                        tasks are compared by the count each returns.</p>
+                    <p>Expect the native DOM to be fastest overall: nothing runs on top of it. What the
+                        table shows is how close Paste stays to it, and how far a classic DOM
+                        library falls behind.</p>
+                    <div class="taskspeed" data-taskspeed>
+                        <div class="site-controls">
+                            <button type="button" class="site-button taskspeed-run" disabled>Run TaskSpeed</button>
+                        </div>
+                        <div class="site-run-state">
+                            <p class="taskspeed-status" role="status"></p>
+                            <p class="taskspeed-progress" aria-hidden="true"></p>
+                            <p class="site-controls-note">Runs the sixteen tasks five times in your browser,
+                                usually in a few seconds. jQuery loads only when you run
+                                it.<noscript> It needs JavaScript.</noscript></p>
+                        </div>
+                        <p class="site-table-note">Lower is faster. Each cell is the task's median time
+                            and the value it returned; Total adds up a contender's medians. The fastest
+                            in each row is marked in green and bold, and times that read the same tie.</p>
+                        <div class="site-table" tabindex="0" role="region" aria-label="TaskSpeed results">
+                            <table class="taskspeed-results">
+                                <caption>Median ms · value returned</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Task</th>
+                                        <th scope="col" data-contender="native">Native DOM</th>
+                                        <th scope="col" data-contender="paste">Paste</th>
+                                        <th scope="col" data-contender="pastehelpers">Paste helpers</th>
+                                        <th scope="col" data-contender="jquery">jQuery 3.7.1</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-task="make"><th scope="row">make</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="indexof"><th scope="row">indexof</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="bind"><th scope="row">bind</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="attr"><th scope="row">attr</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="bindattr"><th scope="row">bindattr</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="table"><th scope="row">table</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="addanchor"><th scope="row">addanchor</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="append"><th scope="row">append</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="addclass-odd"><th scope="row">addclass-odd</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="style"><th scope="row">style</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="removeclass"><th scope="row">removeclass</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="sethtml"><th scope="row">sethtml</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="insertbefore"><th scope="row">insertbefore</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="insertafter"><th scope="row">insertafter</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="destroy"><th scope="row">destroy</th><td></td><td></td><td></td><td></td></tr>
+                                    <tr data-task="finale"><th scope="row">finale</th><td></td><td></td><td></td><td></td></tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr><th scope="row">Total</th><td></td><td></td><td></td><td></td></tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="site-frames" aria-hidden="true">
+                            <iframe title="TaskSpeed: native DOM" data-taskspeed-frame="native" data-src="/taskspeed/native.html" tabindex="-1"></iframe>
+                            <iframe title="TaskSpeed: Paste" data-taskspeed-frame="paste" data-src="/taskspeed/paste.html" tabindex="-1"></iframe>
+                            <iframe title="TaskSpeed: Paste helpers" data-taskspeed-frame="pastehelpers" data-src="/taskspeed/pastehelpers.html" tabindex="-1"></iframe>
+                            <iframe title="TaskSpeed: jQuery" data-taskspeed-frame="jquery" data-src="/taskspeed/jquery.html" tabindex="-1"></iframe>
+                        </div>
+                    </div>
+                    <fieldset class="site-code">
+                        <legend>The make task, four ways</legend>
+                        <input type="radio" name="taskspeed-code" id="taskspeed-code-native" value="native" checked>
+                        <label for="taskspeed-code-native">Native DOM</label>
+                        <input type="radio" name="taskspeed-code" id="taskspeed-code-paste" value="paste">
+                        <label for="taskspeed-code-paste">Paste</label>
+                        <input type="radio" name="taskspeed-code" id="taskspeed-code-pastehelpers" value="pastehelpers">
+                        <label for="taskspeed-code-pastehelpers">Paste helpers</label>
+                        <input type="radio" name="taskspeed-code" id="taskspeed-code-jquery" value="jquery">
+                        <label for="taskspeed-code-jquery">jQuery</label>
+<pre tabindex="0" class="site-code-native"><code>list.className = 'fromcode';
+list.appendChild(text('li', 'one'));
+list.appendChild(text('li', 'two'));
+list.appendChild(text('li', 'three'));
+while (remaining--) {
+    copy = list.cloneNode(true);
+    copy.id = 'setid' + index;
+    body.appendChild(copy);
+    index += 1;
+}
+return body.querySelectorAll('ul.fromcode').length;</code></pre>
+<pre tabindex="0" class="site-code-paste"><code>while (remaining--) {
+    writer['push']('&lt;ul class="fromcode" id="setid' + index +
+        '"&gt;&lt;li&gt;one&lt;/li&gt;&lt;li&gt;two&lt;/li&gt;&lt;li&gt;three&lt;/li&gt;&lt;/ul&gt;');
+    index += 1;
+}
+body.appendChild(writer['toFragment']());
+return $querySelectorAll('ul.fromcode', body).length;</code></pre>
+<pre tabindex="0" class="site-code-pastehelpers"><code>list.className = 'fromcode';
+list.appendChild(text('li', 'one'));
+list.appendChild(text('li', 'two'));
+list.appendChild(text('li', 'three'));
+while (remaining--) {
+    copy = list.cloneNode(true);
+    copy.id = 'setid' + index;
+    body.appendChild(copy);
+    index += 1;
+}
+return $querySelectorAll('ul.fromcode', body).length;</code></pre>
+<pre tabindex="0" class="site-code-jquery"><code>while (remaining--) {
+    jq('&lt;ul class="fromcode"&gt;&lt;li&gt;one&lt;/li&gt;&lt;li&gt;two&lt;/li&gt;&lt;li&gt;three&lt;/li&gt;&lt;/ul&gt;')
+        .attr('id', 'setid' + index)
+        .appendTo('body');
+    index += 1;
+}
+return jq('ul.fromcode').length;</code></pre>
+                    </fieldset>
+                    <ul class="site-sources">
+                        <li><a href="https://github.com/phiggins42/taskspeed">TaskSpeed</a></li>
+                        <li><a href="https://github.com/pastestack/paste/tree/v2.1.1/src/js">Source, paste v2.1.1</a></li>
+                        <li><a href="https://github.com/pastestack/paste/blob/v2.1.1/README.md#performance">The 2013 results</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- hero(Hero(name = "measured")) -->
+        <section id="measured" tabindex="-1" class="paste-ui-hero"
+                 data-paste-hero="measured"
+                 data-paste-parallax="true">
+            <div id="measured-content-wrap" class="paste-ui-hero-content-wrap">
+                <div id="measured-content" class="paste-ui-hero-content">
+                    <h2>The showcase page, measured</h2>
+                    <p>Press the button and the showcase loads in a hidden frame; once its modules
+                        have started, its own timings say how large its Paste scripts are,
+                        uncompressed, and when they arrived, counted from the start of its
+                        navigation. These are the costs of the showcase, not of this page, measured
+                        with your browser's cache as it is: scripts you have already loaded come
+                        from the cache, and would arrive later on a first visit. A script the server
+                        first confirmed as current reads "your cache, after a check", and the
+                        browser may not report its size. The Paste runtime and loader written into
+                        the page itself, and its style sheets, are not counted here.</p>
+                    <div class="page-measure" data-page-measure>
+                        <div class="site-controls">
+                            <button type="button" class="site-button page-measure-run" disabled>Measure the showcase</button>
+                        </div>
+                        <div class="site-run-state">
+                            <p class="page-measure-status" role="status"></p>
+                            <p class="site-controls-note">Loads the showcase page in a hidden frame and reads
+                                its timings. It fetches the showcase's images too, so it waits for your
+                                click.<noscript> It needs JavaScript.</noscript></p>
+                        </div>
+                        <dl class="page-measure-summary">
+                            <div><dt>Paste scripts</dt><dd data-measure="js-files">–</dd></div>
+                            <div><dt>Their size, uncompressed</dt><dd data-measure="js-size">–</dd></div>
+                            <div><dt>From your cache</dt><dd data-measure="js-cached">–</dd></div>
+                            <div><dt>First byte</dt><dd data-measure="first-byte">–</dd></div>
+                            <div><dt>Document interactive</dt><dd data-measure="interactive">–</dd></div>
+                            <div><dt>Every Paste script arrived</dt><dd data-measure="js-arrived">–</dd></div>
+                        </dl>
+                        <div class="site-table" tabindex="0" role="region" aria-label="Each Paste script">
+                            <table class="page-measure-files">
+                                <caption>Each Paste script, in request order</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Module</th>
+                                        <th scope="col">Size, uncompressed</th>
+                                        <th scope="col">Arrived</th>
+                                        <th scope="col">Came from</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="site-frames" aria-hidden="true">
+                            <iframe title="The showcase page, measured" data-src="/" data-modules="paste.ui.heroscroll paste.ui.smoothscroll paste.ui.stickynav paste.ui.scrollspy paste.ui.scrolltop" tabindex="-1"></iframe>
+                        </div>
+                    </div>
+                    <ul class="site-sources">
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance_API/Navigation_timing">Navigation Timing</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance_API/Resource_timing">Resource Timing</a>, which the measurement reads</li>
+                        <li><a href="https://github.com/pastestack/paste-assetgraph/blob/v0.4.1/docs/basic-html.md">How the files are built</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- hero(Hero(name = "method")) -->
+        <section id="method" tabindex="-1" class="paste-ui-hero"
+                 data-paste-hero="method"
+                 data-paste-parallax="true">
+            <div id="method-content-wrap" class="paste-ui-hero-content-wrap">
+                <div id="method-content" class="paste-ui-hero-content">
+                    <h2>How it is measured</h2>
+                    <p>TaskSpeed's sixteen tasks run in the order TaskSpeed set, five rounds over.
+                        The harness empties each frame's body before the first round, and the last
+                        task empties it again, so every round starts from the same empty body.
+                        Within a round each task runs once per contender, with the contenders in a
+                        new random order every time, and only the call is timed, with
+                        <code>performance.now()</code>. Your browser may round that clock to
+                        protect your privacy, so very short tasks read in steps of the same size.
+                        The table shows each task's median of the five rounds, so a cold start or
+                        a garbage collection that lands in one round does not decide it, and Total
+                        adds up those medians. A task that throws in any round shows "error" and
+                        marks its row as failed, and its contender's Total reads "incomplete"
+                        instead of a sum that leaves the task out.</p>
+                    <ul class="site-notes">
+                        <li><strong>Native DOM</strong> is the baseline: the platform's own interfaces
+                            and nothing else.</li>
+                        <li><strong>Paste</strong> is written the way Paste is meant to be used: markup
+                            built once with <code>MarkupWriter</code> and inserted as one fragment,
+                            listeners through <code>paste.event</code>, and the platform wherever
+                            Paste defers to it.</li>
+                        <li><strong>Paste helpers</strong> is the native code with each call that has a
+                            Paste helper swapped for it. Set beside the native column, it shows what
+                            the helpers themselves cost.</li>
+                        <li><strong>jQuery 3.7.1</strong> runs TaskSpeed's own jQuery tests, using
+                            <code>on</code> and <code>off</code> for the deprecated <code>bind</code> and
+                            <code>unbind</code>, and <code>odd()</code> for the deprecated
+                            <code>:odd</code>.</li>
+                    </ul>
+                    <p>After every task, in every round, the harness compares what each contender
+                        returned and the document each one left, attribute for attribute.
+                        Listeners leave no trace in a document, so the bind tasks are compared by
+                        the count each returns. A disagreement marks the row with what differed,
+                        the value, the document or both, and takes away its fastest mark; every
+                        Total that is not "incomplete" then reads "not comparable". The row keeps
+                        the values from the round where a value first differed; when only the
+                        documents differed, the values match. A document that differs after one
+                        task carries the difference into the tasks after it, until finale empties
+                        the body, so those rows are marked too. The original TaskSpeed counted
+                        against a copy of the W3C Selectors specification in each frame; here
+                        every frame starts empty, so every count is exact, and the four
+                        implementations share one definition of each task. jQuery is loaded only
+                        by its own frame, and only when you run TaskSpeed.</p>
+                    <ul class="site-sources">
+                        <li><a href="https://github.com/phiggins42/taskspeed">TaskSpeed</a>, <a href="/taskspeed/LICENSE.txt">MIT License</a></li>
+                        <li><a href="https://github.com/jquery/jquery/tree/3.7.1">jQuery 3.7.1</a>, <a href="/vendor/jquery-3.7.1-LICENSE.txt">MIT License</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="paste-ui-footer">
+        <p>PasteStack · Apache License 2.0, except the PasteStack logo and the MIT-licensed
+            TaskSpeed and jQuery · <a href="/">The showcase</a></p>
+    </footer>
+    <!-- scriptIncludes: the page's modules, rendered by paste-assetgraph -->
+    <!-- paste-assetgraph js: paste.ui.smoothscroll paste.ui.stickynav paste.ui.scrollspy example.taskspeed example.measure -->
+    <script type="text/javascript">(function(e,t){"use strict";t.keys||(t.keys=function(e){if(e!==t(e))throw TypeError("Object.keys called on a non-object");var n=[],r;for(r in e)t.prototype.hasOwnProperty.call(e,r)&&n.push(r);return n});var n=e.__paste__||function(){var t=e.paste||this,r=function(e,t){return e&&e.hasOwnProperty&&e instanceof t};return r(t,n)||(t=new n,t._instanceStart=new Date().getTime()),t},r=document.head||document.getElementsByTagName("head")[0],i=!document.head,a=function(e){return e.substr(e.lastIndexOf(".")+1)==="js"||e.lastIndexOf(":")>-1||e.substr(0,1)==="/"},o={},s={};e.__paste__=n,e.paste=n(),s={usePasteBuilder:!0,packagesUrl:"/paste/",executionContext:e.paste};function c(e,t){this.moduleA=e,this.moduleB=t,this._key=null,this.isSatisfied=!1}c.prototype={getKey:function(){return this._key||(this._key=this.moduleA.name+"|"+this.moduleB.name),this._key},trySatisfyActivate:function(){return this.trySatisfy(),this.isSatisfied&&this.moduleA.activate(),this.isSatisfied},trySatisfy:function(){return this.moduleB.isDefined?this.isSatisfied=this.moduleB.activate():this.moduleB.load(),this.isSatisfied&&this.moduleA.updateRelation(this),this.isSatisfied}},c.add=function(e,t){var n=new c(e,t);return n.trySatisfy(),n},c.getAll=function(){var e=t.keys(o),n,r=e.length,i=[],a={},s=[],c=0,l=0;for(n=0;n<r;n+=1)for(a=o[e[n]].moduleRelations,s=t.keys(a),l=s.length,c=0;c<l;c+=1)i.push(a[s[c]]);return i};function l(e,t,n){this.name=e,this._isExternal=a(e),this._isActive=!1,this.isLoading=!1,this.isLoaded=!1,this.moduleRelations={},this.errorCount=0,this.errorTimeout=null,this.define(t,n)}l.prototype={_parseDependencies:function(){var e=this.dependencies,t=0,n=e.length,r;for(t;t<n;t+=1)r=c.add(this,l.define(e[t])),this.moduleRelations[r.getKey()]=r},_cleanup:function(){delete this.moduleRelations,this.moduleRelations={},delete this.isLoading,delete this.isLoaded,delete this.name,delete this.dependencies,delete this._fn,delete this._isExternal,delete this.errorCount,delete this.errorTimeout},define:function(e,t){return this._isActive?!0:(this._isExternal&&(e=e||[],this.load()),this.isDefined=typeof e=="object"&&!!e&&e instanceof Array,this.isDefined?(this.dependencies=e,this._fn=t,this._parseDependencies(),this.activate(),!0):!1)},hasDirtyRelations:function(e){return this._isActive?!1:(e=e||t.keys(this.moduleRelations).length,e>0||this._isExternal&&!this.isLoaded)},updateRelation:function(e){this._isActive||e.isSatisfied&&delete this.moduleRelations[e.getKey()]},activate:function(){if(this._isActive||!this.isDefined)return this._isActive;var n,r,i,a,o,s,c;if(this.hasDirtyRelations()){for(n=t.keys(this.moduleRelations),r=0,i=n.length,r;r<i;r+=1)a=this.moduleRelations[n[r]],a.trySatisfy();if(this.hasDirtyRelations())return!1}return this._isActive=!0,this._fn&&(s=l.getActivationParts(this.name,this.dependencies),c=this._fn.apply(e.paste,s[1]),c&&(o=s[0],o[0][o[1]]=c)),this._cleanup(),this._isActive},load:function(){if(!(this._isActive||this.isLoaded||this.isLoading)){window.clearTimeout(this.errorTimeout),this.errorTimeout=null;var e=document.createDocumentFragment(),t=document.createElement("script"),n;t.type="text/javascript",t.async=!0,t.charset="utf-8",t.src=this._isExternal?this.name:l.getURIFromName(this.name),t.data=this.name,t.addEventListener?(t.addEventListener("load",l.handleSourceSuccess,!1),t.addEventListener("error",l.handleSourceError,!1)):t.attachEvent&&(t.readyState?(t.attachEvent("onreadystatechange",l.handleReadyStateChange),t.attachEvent("onerror",l.handleSourceError)):(t.attachEvent("onload",l.handleSourceSuccess),t.attachEvent("onerror",l.handleSourceError))),i?(n=t,r.appendChild(t),n=null):(e.appendChild(t),r.appendChild(e)),this.isLoading=!0}}},l._disposeSourceListeners=function(e,t){t.isLoading=!1,e.removeEventListener?(e.removeEventListener("load",l.handleSourceSuccess,!1),e.removeEventListener("error",l.handleSourceError,!1)):e.detachEvent&&(e.readyState?(e.detachEvent("onreadystatechange",l.handleReadyStateChange),e.detachEvent("onerror",l.handleSourceError)):(e.detachEvent("onload",l.handleSourceSuccess),e.detachEvent("onerror",l.handleSourceError)))},l.handleReadyStateChange=function(e){var t=e.target||e.srcElement,n=t&&(t.readyState.toLowerCase()==="loaded"||t.readyState.toLowerCase()==="complete");n&&l.handleSourceSuccess(e)},l.handleSourceSuccess=function(e){var t=e.target||e.srcElement,n=c.getAll(),r=n.length,i=0,a=t.data,s=o[a];for(l._disposeSourceListeners(t,s),s.isLoaded=!0,i;i<r;i+=1)n[i].trySatisfyActivate()},l.handleSourceError=function(e){var t=e.target||e.srcElement,n=t?t.src:null,i=t.data,a=o[i];if(l._disposeSourceListeners(t,a),r.removeChild(t),a.errorCount+=1,window.clearTimeout(a.errorTimeout),a.errorCount<=5)a.errorTimeout=window.setTimeout(function(){a.load()},5e3);else throw Error("Error loading resource. Max attempts reached. "+n);n=null},l.getURIFromName=function(e){if(e.length<1)throw Error("paste.require - please specify a correct module name and package hierarchy (empty string)");if(e.lastIndexOf("/")>-1)throw Error("paste.require - please specify a correct module name and package hierarchy");return s.packagesUrl+(s.usePasteBuilder?e:e.replace(".","/"))+".js"},l.getActivationParts=function(e,t){var n=function(e){var t=e.split("."),n=0,r=t.length,i=window,a,o;for(n;n<r;n+=1)o=t[n],a=i,i[o]=i[o]||{},i=i[o];return[a,o,i]},r=n(e),i=[r[2]],a=0,o=t.length;for(a;a<o;a+=1)i.push(n(t[a])[2]);return[r,i]},l.define=function(e,t,n){return typeof e!="string"&&(n=t,t=e,e="paste._internal$"+new Date().getTime()+((1+Math.random())*65536|0).toString(16).substring(1)),(typeof t=="function"||typeof t=="object"&&t&&t instanceof Function)&&(n=t,t=[]),o.hasOwnProperty(e)?o[e].isDefined||o[e].define(t,n):o[e]=new l(e,t,n),o[e]},e.paste.define=l.define,e.paste.define.amd={multiversion:!1},e.paste.require=function(e,t){return(typeof e=="string"||typeof e=="object"&&e&&e instanceof String)&&(e=[e]),l.define(e,t)},e.paste.config=function(e){e.hasOwnProperty("packagesUrl")&&(s.packagesUrl=e.packagesUrl)},e.paste.instanceStart=e.paste._instanceStart})(window,Object);
+    ;
+    paste.config({packagesUrl:'/paste/95813d5e20fd/'});</script>
+    <script type="text/javascript">(function(d,r){var u=['/js/paste/ui/utilities/animation-frame.6aa4643560e9aa24ab81736f1cb3d730.v1.min.js','/js/paste/guid.0e8d0f2422b9c7ca85bdb73fd76588b3.v1.min.js','/js/paste/has.221784641fed3dd2946e7c7c58353134.v1.min.js','/js/paste/oop.e850e55241a24dd25e8b2768f3c4852e.v1.min.js','/js/paste/util.c361f2675aa3bcf80ccfb66accf54ce0.v1.min.js','/js/paste/dom.aa72d8ea58e48bb0ab399a02dc0276a3.v1.min.js','/js/paste/event.011ba44c85eb54799548237599d40ec4.v1.min.js','/js/example/measure.502f227a6e9593f76b3a6e8180666151.v1.min.js','/js/example/taskspeed.f3a6a73e78b328bb8b14a510b16cd7b2.v1.min.js','/js/paste/ui/scrollspy.c6da3720faa6572e5639fcd2433084a6.v1.min.js','/js/paste/ui/smoothscroll.99c477f4e8cb7102ea4e28a83410f45b.v1.min.js','/js/paste/ui/stickynav.5586d88ccad93ae3f253a4f149ee292b.v1.min.js'],i=0,n=function(){var v;if(i<u.length){v=u[i];i+=1;r(v,n);}};d('paste.ui.utilities.animation-frame').isLoading=d('paste.guid').isLoading=d('paste.has').isLoading=d('paste.oop').isLoading=d('paste.util').isLoading=d('paste.dom').isLoading=d('paste.event').isLoading=d('example.measure').isLoading=d('example.taskspeed').isLoading=d('paste.ui.scrollspy').isLoading=d('paste.ui.smoothscroll').isLoading=d('paste.ui.stickynav').isLoading=!0;n();})(paste.define,paste.require);</script>
+    <!-- /paste-assetgraph -->
+</body>
+</html>
